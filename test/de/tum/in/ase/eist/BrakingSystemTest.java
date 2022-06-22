@@ -10,17 +10,38 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(EasyMockExtension.class)
 class BrakingSystemTest {
 
+	@TestSubject
+	private BrakingSystem brakingSystem = new BrakingSystem();
+	@Mock
+	private ABS abs = new ABS();
+
+	@Mock
+	private Brake brake;
+
 	@Mock(fieldName = "distanceSensor")
 	private Sensor distanceSensor;
 
+	@Mock(fieldName = "tractionSensor")
+	private Sensor tractionSensor;
+
 	@Test
 	void testBrakeProcess() {
-		fail("Test case not implemented yet");
+		expect(abs.shouldOverrideBrake()).andReturn(false);
+		replay(abs);
+		abs.shouldOverrideBrake();
+		brakingSystem.calculateNextFrame();
+//		expected = brake.brake(2);
+//		observed = brakingSystem.calculateNextFrame();
+//		assertEquals
 	}
 
 	@Test
 	void testABSWarning() {
-		fail("Test case not implemented yet");
+		expect(brakingSystem.isAbsWarning()).andReturn(true);
+		replay(abs);
+		abs.shouldOverrideBrake();
+		brakingSystem.calculateNextFrame();
+		assertTrue(brakingSystem.isAbsWarning());
 	}
 
 }
