@@ -44,10 +44,8 @@ class BrakingSystemTest {
 
 	@Test
 	void testABSWarning() {
-		expect(brakingSystem.isAbsWarning()).andReturn(true);
-		expectLastCall();
+		expect(abs.shouldOverrideBrake()).andReturn(true);
 		replay(abs);
-		abs.shouldOverrideBrake();
 		brakingSystem.calculateNextFrame();
 		assertTrue(brakingSystem.isAbsWarning());
 		verify(abs);
