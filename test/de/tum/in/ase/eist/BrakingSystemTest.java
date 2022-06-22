@@ -39,7 +39,6 @@ class BrakingSystemTest {
 		expect(brakingPedal.sense()).andReturn(0.5);
 		brakingSystem.calculateNextFrame();
 		//		verify the brake mock
-		expectLastCall();
 		verify(brake);
 	}
 
@@ -50,6 +49,7 @@ class BrakingSystemTest {
 		abs.shouldOverrideBrake();
 		brakingSystem.calculateNextFrame();
 		assertTrue(brakingSystem.isAbsWarning());
+		verify(abs);
 	}
 
 }
