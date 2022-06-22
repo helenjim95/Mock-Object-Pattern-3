@@ -49,6 +49,7 @@ class BrakingSystemTest {
 		abs.shouldOverrideBrake();
 		brakingSystem.calculateNextFrame();
 		assertTrue(brakingSystem.isAbsWarning());
+		expectLastCall();
 		verify(abs);
 	}
 
