@@ -18,9 +18,6 @@ class BrakingSystemTest {
 	@Mock(fieldName = "distanceSensor")
 	private Sensor distanceSensor;
 
-	@Mock(fieldName = "tractionSensor")
-	private Sensor tractionSensor;
-
 	@Mock(fieldName = "speedSensor")
 	private Sensor speedSensor;
 
