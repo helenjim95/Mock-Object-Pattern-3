@@ -37,9 +37,9 @@ class BrakingSystemTest {
 		expect(distanceSensor.sense()).andReturn(200.0);
 		replay(distanceSensor);
 		expect(brakingPedal.sense()).andReturn(0.5);
-		abs.shouldOverrideBrake();
 		brakingSystem.calculateNextFrame();
 		//		verify the brake mock
+		expectLastCall();
 		verify(brake);
 	}
 
