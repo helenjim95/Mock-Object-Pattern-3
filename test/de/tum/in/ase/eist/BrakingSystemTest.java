@@ -26,13 +26,13 @@ class BrakingSystemTest {
 
 	@Test
 	void testBrakeProcess() {
+//		expects all the object in the calculateNextFrame and reply all the objects
 		expect(abs.shouldOverrideBrake()).andReturn(false);
 		replay(abs);
 		abs.shouldOverrideBrake();
 		brakingSystem.calculateNextFrame();
-//		expected = brake.brake(2);
-//		observed = brakingSystem.calculateNextFrame();
-//		assertEquals
+		//		verify the brake mock
+		verify(brake);
 	}
 
 	@Test
