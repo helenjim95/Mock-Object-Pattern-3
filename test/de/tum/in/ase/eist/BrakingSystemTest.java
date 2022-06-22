@@ -38,6 +38,8 @@ class BrakingSystemTest {
 		replay(distanceSensor);
 		expect(brakingPedal.sense()).andReturn(0.5);
 		replay(brakingPedal);
+		expect(brake);
+		replay(brake);
 		brakingSystem.calculateNextFrame();
 		verify(brake);
 	}
@@ -50,5 +52,4 @@ class BrakingSystemTest {
 		assertTrue(brakingSystem.isAbsWarning());
 		verify(abs);
 	}
-
 }
