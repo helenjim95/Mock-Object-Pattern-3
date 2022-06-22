@@ -34,11 +34,11 @@ class BrakingSystemTest {
 		replay(abs);
 		expect(speedSensor.sense()).andReturn(150.0);
 		replay(speedSensor);
-		expect(distanceSensor.sense()).andReturn(200.0);
+		expect(distanceSensor.sense()).andReturn(100.0);
 		replay(distanceSensor);
 		expect(brakingPedal.sense()).andReturn(0.5);
+		replay(brakingPedal);
 		brakingSystem.calculateNextFrame();
-		//		verify the brake mock
 		verify(brake);
 	}
 
