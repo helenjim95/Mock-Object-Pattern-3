@@ -15,6 +15,7 @@ class BrakingSystemTest {
 	@Mock(fieldName = "abs")
 	private ABS abs = new ABS();
 
+//  TODO: When the same type has several Mock objects, each Mock needs to indicate fieldName
 	@Mock(fieldName = "distanceSensor")
 	private Sensor distanceSensor;
 
